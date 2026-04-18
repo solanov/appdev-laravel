@@ -29,3 +29,12 @@ Route::get('/register', function(){
     $info = 'Please fillup all the required information';
     return view('register', ['info' => $info]);
 });
+
+//passing by using function compact()
+
+Route::get('/announcement', function(){
+    $message= 'This is a simple message one';
+    $message2= 'This is a sample message two';
+
+    return view('announcement', compact('message', 'message2'));
+});
