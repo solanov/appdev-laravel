@@ -60,6 +60,34 @@
         @endif
 
         @endforeach
+
+        {{-- Useful blade directives --}}
+        @php
+            echo "This is a sample echo";
+            $data = true;
+            $i=2;
+            $x='';
+        @endphp
+
+        @isset($data)
+            {{-- <div class="alert alert-success">Success</div> --}}
+        @endisset
+
+        @switch($i)
+            @case(1)
+                {{-- <div class="alert alert-danger">Danger</div> --}}
+                @break
+            @case(2)
+                <{{-- div class="alert alert-success">Success</div> --}}
+                @break
+            @default
+                {{-- <div class="alert alert-warning">Warning</div> --}}
+        @endswitch
+
+        @empty($x)
+            <div class="alert alert-success">Success</div>
+        @endempty
+
     </div>
 </main>
 @endsection

@@ -8,53 +8,13 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Navbar</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="/">Home</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="about">About</a>
-              </li>
-
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="contact">Contact</a>
-              </li>
+    @include('layouts.header')
+    <!-- Begin page content -->
+    @yield('content_here')
+    @include('layouts.footer')
 
 
 
-
-              <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-              </li>
-
-            </ul>
-          </div>
-        </div>
-    </nav>
-
-        <!-- Begin page content -->
-        @yield('content_here')
-
-
-          <footer class="bg-light text-center text-lg-start" style="position: fixed;
-          width: 100%;
-          bottom: 0;">
-            <!-- Copyright -->
-            <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-              © 2025 Copyright:
-              <a class="text-dark" href="">coder tutorial</a>
-            </div>
-            <!-- Copyright -->
-          </footer>
 
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
