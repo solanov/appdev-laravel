@@ -22,7 +22,7 @@
     </div>--}}
 
     {{-- Using for loop --}}
-    <div class="row mt-5">
+    {{-- <div class="row mt-5">
         @for ($i = 0; $i < count($blogs); $i++)
         <div class="col-md-4">
             <div class="card">
@@ -33,6 +33,33 @@
             </div>
         </div>
         @endfor
+    </div> --}}
+
+    {{-- Conditional Rendering --}}
+    <div class="row mt-5">
+        @foreach ($blogs as $blog)
+        @if ($blog['active']==1)
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2>{{ $blog['title'] }}</h2>
+                    <p>{{ $blog['body'] }}</p>
+                </div>
+            </div>
+        </div>
+        @else
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h2>{{ $blog['title'] }}</h2>
+                    <p>{{ $blog['body'] }}</p>
+                    <div class="btn-sm btn-warning">Locked</div>
+                </div>
+            </div>
+        </div>
+        @endif
+
+        @endforeach
     </div>
 </main>
 @endsection
