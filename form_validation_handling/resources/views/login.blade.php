@@ -18,11 +18,14 @@
                         <div class="mb-2">
                             <label for="" class="form-label">User Name</label>
                             <input name="name" type="text"  value="{{ old('name') }}" class="form-control">
+                            @error('name')
+                                <div class="alert alert-danger">{{ $message }}</div>
+                            @enderror
                         </div>
 
                         <div class="mb-2">
                             <label for="" class="form-label">User Email</label>
-                            <input name="email" type="email" value="{{ old('email') }}"class="form-control">
+                            <input name="email" type="text" value="{{ old('email') }}"class="form-control">
                         </div>
 
                         <div class="mb-2">
