@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Requests\LoginRequest;
+
 use Illuminate\Http\Request;
 
 class LoginController extends Controller
@@ -10,7 +10,7 @@ class LoginController extends Controller
         return view('login');
     }
 
-    public function handleLogin(LoginRequest $request){
+    public function handleLogin(Request $request){
         /* echo $_POST['name'];
         echo "<br>";
         echo $_POST['email'];
@@ -19,7 +19,7 @@ class LoginController extends Controller
        //dd($request);
 
         //dd($request->all());
-        /* $request->validate(
+        $request->validate(
             [
                 'name' => ['required','alpha'],
                 'email' => ['required','email'],
@@ -35,7 +35,7 @@ class LoginController extends Controller
                 'password.min' => 'Attention: Password must be at least 6 characters',
                 'password.max' => 'Attention: Password must not exceed 10 characters'
             ]
-        ); */
+        );
         return $request;
     }
 }
