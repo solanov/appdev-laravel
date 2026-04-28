@@ -1,37 +1,23 @@
 <?php
-
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\ContactController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    $blogs=[
-        [
-            'title' => 'This is the title One',
-            'body' => 'This is a body text One',
-            'active' => 1
-        ],
-        [
-            'title' => 'This is the title Two',
-            'body' => 'This is a body text Two',
-            'active' => 1
-        ],
-        [
-            'title' => 'This is the title Three',
-            'body' => 'This is a body text Three',
-            'active' => 0
-        ],
-        [
-            'title' => 'This is the title Four',
-            'body' => 'This is a body text Four',
-            'active' => 0
-        ],
-    ];
-    return view('home', compact('blogs'));
-});
+/* Route::get('/', function () {
 
-Route::get('/about', function () {
-    return view('about');
-});
+}); */
 
-Route::get('/contact', function () {
-    return view('contact');
-});
+Route::get('/', [HomeController::class, 'index']);
+
+/* Route::get('/about', function () {
+
+}); */
+
+Route::get('/about', [AboutController::class, 'index']);
+
+/* Route::get('/contact', function () {
+
+}); */
+
+Route::get('/contact', [ContactController::class, 'index']);
