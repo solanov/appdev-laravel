@@ -13,26 +13,29 @@ class TaskController extends Controller
         if ($request->search) {
             $query->where('task_name', 'like', '%' . $request->search . '%');
         }
-
-        // 2. Tab/Status Filter
         if ($request->status) {
             $query->where('status', $request->status);
         }
 
-        $sortBy = $request->sort_by;
-        $sortDir = $request->sort_dir ?? 'asc';
+        if ($request->has('sort_by')) {
+            session([
+                'task_sort_by' => $request->sort_by,
+                'task_sort_dir' => $request->sort_dir
+            ]);
+        }
+
+        $sortBy = session('task_sort_by', 'deadline');
+        $sortDir = session('task_sort_dir', 'asc');
 
         $allowedColumns = ['task_name', 'priority', 'deadline'];
 
-        if ($sortBy && in_array($sortBy, $allowedColumns)) {
+        if (in_array($sortBy, $allowedColumns)) {
             $query->orderBy($sortBy, $sortDir);
-        } else {
-            $query->latest();
         }
 
         $tasks = $query->get();
 
-        return view('tasks.index', compact('tasks'));
+        return view('tasks.index', compact('tasks', 'sortBy', 'sortDir'));
     }
 
     public function create()
@@ -71,10 +74,11 @@ class TaskController extends Controller
         return redirect()->route('tasks.index');
     }
 
-    public function destroy($id){
+    public function destroy($id)
+    {
         Task::find($id)->delete();
 
-        return redirect()->route('tasks.index');
+        return redirect()->back();
     }
 
     public function trash(Request $request)
@@ -104,13 +108,14 @@ class TaskController extends Controller
     public function restore($id){
         Task::withTrashed()->where('id', $id)->restore();
 
-        return redirect()->route('tasks.trash');
+        return redirect()->back();
     }
 
-    public function forceDelete($id){
+    public function forceDelete($id)
+    {
         Task::withTrashed()->where('id', $id)->forceDelete();
 
-        return redirect()->route('tasks.trash');
+        return redirect()->back();
     }
 
     // INLINE STATUS UPDATE (AJAX)

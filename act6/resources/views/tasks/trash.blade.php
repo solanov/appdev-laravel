@@ -56,15 +56,21 @@
                             <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 text-sm">
                                 <li>
                                     <form action="{{ route('tasks.restore', $task->id) }}" method="POST" class="m-0">
-                                        @csrf @method('PATCH')
-                                        <button type="button" class="dropdown-item py-2 text-success fw-bold" onclick="confirmFormAction(event, 'Restore Task?', 'This will move the task back to your active list.', 'Restore', '#198754')"><i class="bi bi-arrow-counterclockwise me-2"></i>Restore</button>
+                                        @csrf
+                                        @method('PATCH')
+                                        <button type="submit" class="dropdown-item py-2 text-success fw-bold" onclick="return confirm('Restore this task to active status?')">
+                                            <i class="bi bi-arrow-counterclockwise me-2"></i>Restore
+                                        </button>
                                     </form>
                                 </li>
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form action="{{ route('tasks.forceDelete', $task->id) }}" method="POST" class="m-0">
-                                        @csrf @method('DELETE')
-                                        <button type="button" class="dropdown-item py-2 text-danger fw-bold" onclick="confirmFormAction(event, 'Permanent Delete?', 'This cannot be undone. It will be erased forever.', 'Erase Forever', '#212529')"><i class="bi bi-x-octagon me-2"></i>Permanently Delete</button>
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="dropdown-item py-2 text-danger fw-bold" onclick="return confirm('PERMANENTLY delete this task? This cannot be undone.')">
+                                            <i class="bi bi-x-octagon me-2"></i>Permanently Delete
+                                        </button>
                                     </form>
                                 </li>
                             </ul>

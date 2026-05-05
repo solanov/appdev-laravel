@@ -107,8 +107,11 @@
                                 <li><hr class="dropdown-divider"></li>
                                 <li>
                                     <form action="{{ route('tasks.destroy', $task->id) }}" method="POST" class="m-0">
-                                        @csrf @method('DELETE')
-                                        <button type="button" class="dropdown-item py-2 text-danger" onclick="confirmFormAction(event, 'Move to Trash?', 'This task will be sent to your deleted lists.', 'Move to Trash', '#dc3545')"><i class="bi bi-trash me-2"></i>Delete</button>
+                                     @csrf
+                                     @method('DELETE')
+                                        <button type="submit" class="dropdown-item py-2 text-danger" onclick="return confirm('Move this task to the trash?')">
+                                            <i class="bi bi-trash me-2"></i>Delete
+                                        </button>
                                     </form>
                                 </li>
                             </ul>
