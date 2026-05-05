@@ -16,6 +16,6 @@ class EmployeeController extends Controller
 
         dd('success'); */
 
-        return Employee::all();
+        return Employee::onlyTrashed()->get();
     }
 }
