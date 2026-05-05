@@ -15,12 +15,24 @@ class EmployeesController extends Controller
                     //->select('id', 'first_name', 'last_name')->get();
 
         //$employees = DB::table('employees')->orderBy('last_name')->orderBy('first_name')->get();
-        $employees = DB::table('employees')
+        /* $employees = DB::table('employees')
         ->select('id', 'first_name', 'last_name', 'email','phone','position')
         ->orderBy('last_name', 'asc')
         ->orderBy('first_name', 'asc')
         ->get();
-        return $employees;
+        return $employees;*/
+        DB::table('employees')->insert([
+            'first_name' => 'Luffy',
+            'last_name' => 'Monkey',
+            'email' => 'monkeydluffy@gmail.com',
+            'phone' => '09281234568',
+            'position' => 'IT Support',
+            'department'=> 'IT',
+            'salary' => '65000.00',
+            'hire_date' => '2024-06-01',
+            'status' => 'active',
+        ]);
 
+        dd('success');
     }
 }
