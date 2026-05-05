@@ -52,7 +52,11 @@ class EmployeesController extends Controller
         dd('success'); */
 
         //DELETE
-        DB::table('employees')->where('id', '=', '1')->delete();
-        dd('success');
+        /* DB::table('employees')->where('id', '=', '1')->delete();
+        dd('success'); */
+
+        //JOIN
+        $employee = DB::table('employees')->join('departments','employees.department', '=', 'departments.id')->select('employees.last_name','employees.first_name','departments.department')->get();
+        return $employee;
     }
 }
