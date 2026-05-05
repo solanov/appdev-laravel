@@ -10,6 +10,9 @@ use function Laravel\Prompts\table;
 class EmployeesController extends Controller
 {
     public function index(){
-        return DB::table('employees')->first();
+        //return DB::table('employees')->pluck('first_name', 'id');
+        $employees = DB::table('employees')
+                    ->select('id', 'first_name', 'last_name')->get();
+        return $employees;
     }
 }
