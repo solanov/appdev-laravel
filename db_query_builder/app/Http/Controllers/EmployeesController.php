@@ -38,7 +38,7 @@ class EmployeesController extends Controller
         dd('success'); */
 
         // UPDATING
-        DB::table('employees')->where('id', '=', '1')->update([
+        /* DB::table('employees')->where('id', '=', '1')->update([
             'first_name' => 'Zoro',
             'last_name' => 'Roronoa',
             'email' => 'roronoazoro@gmail.com',
@@ -49,6 +49,10 @@ class EmployeesController extends Controller
             'hire_date' => '2024-06-01',
             'status' => 'active',
         ]);
+        dd('success'); */
+
+        //DELETE
+        DB::table('employees')->where('id', '=', '1')->delete();
         dd('success');
     }
 }
