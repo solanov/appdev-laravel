@@ -12,15 +12,10 @@ class EmployeeController extends Controller
      */
      public function __invoke(Request $request)
     {
-        //return Employee::all();
-
-        /* Employee::withTrashed()->where('id', 53)->restore();
+        /* Employee::where('id', 52)->delete();
 
         dd('success'); */
 
-        //Employee::where('id', 53)->delete();
-
-        Employee::withTrashed()->where('id', 53)->forceDelete();
-        dd('success');
+        return Employee::onlyTrashed()->get();
     }
 }
