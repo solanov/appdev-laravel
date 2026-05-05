@@ -74,6 +74,6 @@ class EmployeesController extends Controller
         //min()
         //avg()
         //sum()
-        //return DB::table('employees')->avg('salary');
+        return DB::table('employees')->avg('salary');
     }
 }
