@@ -12,18 +12,10 @@ class EmployeeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //return $employees = Employee::all();
-        //return Employee::find(4);
-        //$employee = Employee::find(4);
-        //return $employee->first_name.' '.$employee->last_name;
+        //return Employee::all();
+        //return Employee::where('department','=','1')->get();
+        //return Employee::where('salary','>=','45000')->get();
 
-        //return $employee=Employee::find(52);
-        //return $employee=Employee::findOrFail(52);
-
-        $employees = Employee::all();
-
-        foreach($employees as $employee){
-            echo $employee->first_name.' '.$employee->last_name.'<br>';
-        }
+        return Employee::where('salary','>=','45000')->where('department','=','1')->get();
     }
 }
