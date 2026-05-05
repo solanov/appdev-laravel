@@ -10,19 +10,28 @@ use function Laravel\Prompts\table;
 class EmployeesController extends Controller
 {
     public function index(){
+        //A. SETUP
+        // return '<h1>Hello</h1>';
+
+        //B. RETRIEVING DATA FROM TABLE
+        // return DB::table('employees')->get();
+
+        //C. RETRIEVING LIST COLUMN VALUES
         //return DB::table('employees')->pluck('first_name', 'id');
         //$employees = DB::table('employees')
                     //->select('id', 'first_name', 'last_name')->get();
+        // return $employees;
 
+        //E. WHERE CONDITION
         //$employees = DB::table('employees')->orderBy('last_name')->orderBy('first_name')->get();
         /* $employees = DB::table('employees')
         ->select('id', 'first_name', 'last_name', 'email','phone','position')
         ->orderBy('last_name', 'asc')
         ->orderBy('first_name', 'asc')
         ->get();
-        return $employees;*/
+        return $employees; */
 
-        // INSERTING
+        //F. INSERTING
         /* DB::table('employees')->insert([
             'first_name' => 'Luffy',
             'last_name' => 'Monkey',
@@ -37,7 +46,7 @@ class EmployeesController extends Controller
 
         dd('success'); */
 
-        // UPDATING
+        //G. UPDATING
         /* DB::table('employees')->where('id', '=', '1')->update([
             'first_name' => 'Zoro',
             'last_name' => 'Roronoa',
@@ -51,12 +60,20 @@ class EmployeesController extends Controller
         ]);
         dd('success'); */
 
-        //DELETE
+        //H. DELETE
         /* DB::table('employees')->where('id', '=', '1')->delete();
         dd('success'); */
 
-        //JOIN
-        $employee = DB::table('employees')->join('departments','employees.department', '=', 'departments.id')->select('employees.last_name','employees.first_name','departments.department')->get();
-        return $employee;
+        //I. JOIN
+        /* $employee = DB::table('employees')->join('departments','employees.department', '=', 'departments.id')->select('employees.last_name','employees.first_name','departments.department')->get();
+        return $employee; */
+
+        //J. AGGREGATE Methods
+        //count()
+        //max()
+        //min()
+        //avg()
+        //sum()
+        //return DB::table('employees')->avg('salary');
     }
 }
