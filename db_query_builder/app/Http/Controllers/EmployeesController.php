@@ -21,7 +21,9 @@ class EmployeesController extends Controller
         ->orderBy('first_name', 'asc')
         ->get();
         return $employees;*/
-        DB::table('employees')->insert([
+
+        // INSERTING
+        /* DB::table('employees')->insert([
             'first_name' => 'Luffy',
             'last_name' => 'Monkey',
             'email' => 'monkeydluffy@gmail.com',
@@ -33,6 +35,20 @@ class EmployeesController extends Controller
             'status' => 'active',
         ]);
 
+        dd('success'); */
+
+        // UPDATING
+        DB::table('employees')->where('id', '=', '1')->update([
+            'first_name' => 'Zoro',
+            'last_name' => 'Roronoa',
+            'email' => 'roronoazoro@gmail.com',
+            'phone' => '09281234568',
+            'position' => 'IT Support',
+            'department'=> 'IT',
+            'salary' => '65000.00',
+            'hire_date' => '2024-06-01',
+            'status' => 'active',
+        ]);
         dd('success');
     }
 }
