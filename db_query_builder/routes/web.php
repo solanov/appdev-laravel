@@ -1,11 +1,11 @@
 <?php
 
-use App\Http\Controllers\QueryBuilderContoller;
+use App\Http\Controllers\EmployeesController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/querybuilder', [QueryBuilderContoller::class, 'index']);
+Route::get('/employee', [EmployeesController::class, 'index']);
 
