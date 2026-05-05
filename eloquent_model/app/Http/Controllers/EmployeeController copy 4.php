@@ -12,11 +12,14 @@ class EmployeeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //deleting data
-        //Employee::find(3)->delete();
-        //Employee::findOrFail(3)->delete();
+        //updating data
+        //$employee = Employee::find(52);
+        $employee = Employee::where('id', '=', 52)->first();
+        $employee->first_name='John';
+        $employee->last_name='Dela Cruz';
 
-        Employee::where('id', '=', 2)->delete();
+        $employee->save();
+
         dd('success');
     }
 }
