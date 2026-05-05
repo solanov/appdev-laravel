@@ -12,14 +12,21 @@ class EmployeeController extends Controller
      */
     public function __invoke(Request $request)
     {
-        //updating data
-        //$employee = Employee::find(52);
-        $employee = Employee::where('id', '=', 52)->first();
+        //inserting or saving data with eloquent
+        $employee = new Employee();
+
         $employee->first_name='John';
         $employee->last_name='Dela Cruz';
+        $employee->email='johndelacruz@example.com';
+        $employee->phone='0927567890';
+        $employee->department=1;
+        $employee->salary=50000;
+        $employee->hire_date='2023-01-01';
+        $employee->status='active';
 
         $employee->save();
 
-        dd('success');
+        dd('succeess');
+
     }
 }
