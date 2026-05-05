@@ -11,8 +11,16 @@ class EmployeesController extends Controller
 {
     public function index(){
         //return DB::table('employees')->pluck('first_name', 'id');
+        //$employees = DB::table('employees')
+                    //->select('id', 'first_name', 'last_name')->get();
+
+        //$employees = DB::table('employees')->orderBy('last_name')->orderBy('first_name')->get();
         $employees = DB::table('employees')
-                    ->select('id', 'first_name', 'last_name')->get();
+        ->select('id', 'first_name', 'last_name', 'email','phone','position')
+        ->orderBy('last_name', 'asc')
+        ->orderBy('first_name', 'asc')
+        ->get();
         return $employees;
+
     }
 }
