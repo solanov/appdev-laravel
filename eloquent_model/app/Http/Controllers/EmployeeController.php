@@ -12,37 +12,10 @@ class EmployeeController extends Controller
      */
      public function __invoke(Request $request)
     {
-        /*$employee = Employee::create([
-            'first_name' => 'One Fname',
-            'last_name' => 'One Lname',
-            'email' => 'One email',
-            'phone' => 'One phone',
-            'position' => 'One position',
-            'salary' => 50000,
-            'hire_date' => date('Y-m-d'),
-            'status' => 'active',
-            'department' => 'One department'
-        ]); */
+        /* Employee::where('id', 53)->delete();
 
-        // To update
+        dd('success'); */
 
-        /* $employee = Employee::findOrFail(53)->update([
-            'first_name' => 'Two Fname',
-            'last_name' => 'Two Lname',
-            'email' => 'Two email',
-            'phone' => 'Two phone',
-            'position' => 'Two position',
-            'salary' => 60000,
-            'hire_date' => date('Y-m-d'),
-            'status' => 'active',
-            'department' => 'Two department'
-        ]); */
-
-        // To update using where
-        $employee = Employee::where('department','1')->update([
-            'salary' => 60000
-        ]);
-
-        dd('success');
+        return Employee::all();
     }
 }
